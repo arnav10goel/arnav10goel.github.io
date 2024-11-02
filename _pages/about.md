@@ -11,7 +11,8 @@ Hi! I am Arnav, a final year undergraduate at IIIT Delhi, where I am pursuing a 
 
 My research interests span language models, machine learning, and speech processing. I am dedicated to enhancing the trustworthiness and fairness of large language models (LLMs), with a particular focus on how long-tail distributions in pre-training data influence their memorization and generalization capabilities. Furthermore, I am actively engaged in investigating multilinguality in natural language systems with an aim to make more robust models on low-resource languages. My past experience also includes work on vision-language models and the evaluation of models in scientific question answering and reasoning tasks. Additionally, I have a keen interest in conversational speech systems, especially in the areas of prosody transfer and representation learning in audio.
 
-A full list of my publications is available at [this link](https://scholar.google.com/citations?user=PPozs9sAAAAJ&hl=en). If you are interested in collaborating, feel free to hit me up!
+A full list of my publications is available at [this link](https://arnav10goel.github.io/publications/). If you are interested in collaborating, feel free to hit me up!
+
 
 News
 ------
