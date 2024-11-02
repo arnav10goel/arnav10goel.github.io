@@ -6,22 +6,22 @@
 
 main:
   - title: "Publications"
-    url: /publications/
+    url: "https://scholar.google.com/citations?user=PPozs9sAAAAJ&hl=en"
 
-  - title: "Talks"
-    url: /talks/    
-
-  - title: "Teaching"
-    url: /teaching/    
-    
-  - title: "Portfolio"
-    url: /portfolio/
-        
-  - title: "Blog Posts"
-    url: /year-archive/
-    
   - title: "CV"
-    url: /cv/
+    url: "https://drive.google.com/file/d/1JnMwYPbmJcEmdeM8To9A6aGCWqbZcBvn/view?usp=drive_link"    
+
+  # - title: "Teaching"
+  #   url: /teaching/    
     
-  - title: "Guide"
-    url: /markdown/
+  # - title: "Portfolio"
+  #   url: /portfolio/
+        
+  # - title: "Blog Posts"
+  #   url: /year-archive/
+    
+  # - title: "CV"
+  #   url: /cv/
+    
+  # - title: "Guide"
+  #   url: /markdown/
