@@ -24,5 +24,6 @@ News
 - **May 2024**: Thrilled to share that I have started my internship at the INK-Lab in the USC NLP Group as one of the **15 IUSSTF-Viterbi Research Scholars** selected from all over India. Looking forward to an incredible summer in Los Angeles :)
 - **February 2024**: 2 papers on speech processing and multilingual prosody transfer accepted at the Tiny Track at ICLR 2024!
 - **November 2023**: Paper titled "LLMGuard: Guarding Against Unsafe LLM Behavior" accepted at the Demonstrations Track at AAAI 2024. This work was done as part of my GRM internship at IBM Research India.
+- **August 2023**: 2 papers on improving LLMs in scientific-question answering through RAG and alignment were accepted at BDA-2023. This work was done as part of my research for the Summer Undergraduate Research Fellowship (SURF) at IIIT-Delhi.
 
 
