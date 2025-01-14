@@ -21,6 +21,7 @@ Feel free to reach out if you would like to chat about large language models (LL
 
 News
 ------
+- **January 2025**: Selected for the Google Deepmind Research Symposium 2025. Looking forward to connect with people in Bangalore!
 - **December 2024**: Paper titled "Optimizing Multimodal Large Language Models for Scientific VQA through Caption-Aware Supervised Training" accepted at the AI4EDU-Workshop @ AAAI-2025! This work was done as part of my research at the MIDAS-Lab @ IIIT-Delhi.
 - **October 2024**: My team _DBkaScam_ was placed **6th** amongst 20000+ teams in the prestigious **Amazon ML Challenge 2024**! Check out our winning solution at [this link](https://www.canva.com/design/DAGRau30tRI/06v7kPdBwb99GDjsiv1fcg/edit?utm_content=DAGRau30tRI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 - **June 2024**: Full paper titled "Exploring Multilingual Unseen Speaker Emotion Recognition: Leveraging Co-Attention Cues in Multitask Learning" accepted at INTERSPEECH 2024. This work was co-led by me as part of my undergraduate thesis at IIIT-Delhi. 
