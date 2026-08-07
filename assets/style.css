@@ -717,3 +717,46 @@ h2.section .more {
   color: color-mix(in srgb, var(--art-mustard) 78%, var(--ink));
   margin-bottom: 5px;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   Ambient background. Without this the page is a flat field and the
+   artworks read as floating on nothing.
+   ══════════════════════════════════════════════════════════════════════ */
+
+:root { --dot: rgba(39, 55, 70, 0.10); }
+@media (prefers-color-scheme: dark) { :root { --dot: rgba(200, 214, 228, 0.075); } }
+
+/* fine dot field */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle at center, var(--dot) 1px, transparent 1.3px);
+  background-size: 25px 25px;
+}
+
+/* soft colour washes, so the field is not uniform */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(62% 46% at 10% -4%,
+      color-mix(in srgb, var(--art-blue) 13%, transparent), transparent 72%),
+    radial-gradient(52% 40% at 96% 14%,
+      color-mix(in srgb, var(--art-terra) 8%, transparent), transparent 70%),
+    radial-gradient(58% 42% at 78% 96%,
+      color-mix(in srgb, var(--art-teal) 8%, transparent), transparent 72%);
+}
+
+/* content sits above the ambient layers */
+.wrap { position: relative; z-index: 1; }
+
+/* two artworks stacked in the About column — identical aspect ratios, so
+   they align cleanly (the earlier portrait-over-landscape pairing did not) */
+.artstack { display: grid; gap: 20px; }
+.artstack img { width: 100%; height: auto; display: block; }

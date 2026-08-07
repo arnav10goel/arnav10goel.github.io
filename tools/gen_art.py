@@ -44,23 +44,23 @@ def hero():
     # animation does not run — reduced-motion, some <img> contexts, printing.
     o.append(f'''<style>{PALETTE}
     .pth{{stroke-dasharray:var(--l);stroke-dashoffset:0;opacity:.9;
-         animation:go 10s ease-in-out infinite}}
+         animation:go 7s ease-in-out infinite}}
     @keyframes go{{0%{{stroke-dashoffset:var(--l)}}
       55%,100%{{stroke-dashoffset:0}}}}
-    .stp{{opacity:.9;animation:stp 10s ease-in-out infinite}}
+    .stp{{opacity:.9;animation:stp 7s ease-in-out infinite}}
     @keyframes stp{{0%,2%{{opacity:0}}9%,100%{{opacity:.9}}}}
     .mk{{opacity:1;transform-box:fill-box;transform-origin:center;
-        animation:mk 10s ease-in-out infinite}}
+        animation:mk 7s ease-in-out infinite}}
     @keyframes mk{{0%,52%{{opacity:0;transform:scale(.4)}}
       62%,100%{{opacity:1;transform:scale(1)}}}}
     .halo{{opacity:0;transform-box:fill-box;transform-origin:center;
-          animation:hal 10s ease-in-out infinite}}
+          animation:hal 7s ease-in-out infinite}}
     @keyframes hal{{0%,54%{{opacity:0;transform:scale(.5)}}
       68%{{opacity:.6;transform:scale(1)}}84%,100%{{opacity:0;transform:scale(2)}}}}
-    .cn{{animation:cn 12s ease-in-out infinite}}
-    @keyframes cn{{0%,100%{{opacity:.34}}50%{{opacity:.62}}}}
-    .gr{{animation:gr 12s ease-in-out infinite}}
-    @keyframes gr{{0%,100%{{opacity:.17}}50%{{opacity:.42}}}}
+    .cn{{animation:cn 8s ease-in-out infinite}}
+    @keyframes cn{{0%,100%{{opacity:.28}}50%{{opacity:.72}}}}
+    .gr{{animation:gr 8s ease-in-out infinite}}
+    @keyframes gr{{0%,100%{{opacity:.14}}50%{{opacity:.55}}}}
     {RED}</style>''')
 
     cs, sn = math.cos(math.radians(ROT)), math.sin(math.radians(ROT))
@@ -125,12 +125,22 @@ def hero():
              f'class="pth" style="--l:{L:.0f}"/>')
     for i, (a, b) in enumerate(pts[:-2]):
         o.append(f'<circle cx="{a:.1f}" cy="{b:.1f}" r="{4.8 if i == 0 else 3.2}" '
-                 f'fill="{INK}" class="stp" style="animation-delay:{i*0.34:.2f}s"/>')
+                 f'fill="{INK}" class="stp" style="animation-delay:{i*0.24:.2f}s"/>')
 
     # ── the minimum ───────────────────────────────────────────────────────
     o.append(f'<circle cx="{MX}" cy="{MY}" r="15" fill="none" stroke="{TERRA}" '
              f'stroke-width="1.4" class="halo"/>')
     o.append(f'<circle cx="{MX}" cy="{MY}" r="6.4" fill="{TERRA}" class="mk"/>')
+
+    # travelling pulses riding two of the contours
+    for j, (ri, dur, dly) in enumerate(((6, 9.0, 0.0), (10, 13.0, 3.2))):
+        t = ri / N
+        prx, pry = 22 + t * (A - 22), 14 + t * (B - 14)
+        o.append(f'<ellipse id="cn{j}" cx="{MX}" cy="{MY}" rx="{prx:.0f}" ry="{pry:.0f}" '
+                 f'fill="none" stroke="none" transform="rotate({ROT} {MX} {MY})"/>')
+        o.append(f'<circle r="3" fill="{TERRA}" opacity="0.85">'
+                 f'<animateMotion dur="{dur}s" begin="{dly}s" repeatCount="indefinite" '
+                 f'rotate="auto"><mpath href="#cn{j}"/></animateMotion></circle>')
 
     o.append(f'<text x="{W-22}" y="{H-20}" text-anchor="end" font-size="11" '
              f'letter-spacing="2.4" fill="{SILVER}" font-family="{MONO}" '
@@ -144,9 +154,9 @@ def accent():
     o = [f'<svg class="accent-art" viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" '
          f'role="img" aria-label="A vector field with particle streamlines flowing through it">']
     o.append(f'''<style>{PALETTE}
-    .tick{{animation:tk 10s ease-in-out var(--d) infinite}}
-    @keyframes tk{{0%,100%{{opacity:.18}}50%{{opacity:.34}}}}
-    .puls{{opacity:.9;animation:pu 6s linear var(--d) infinite}}
+    .tick{{animation:tk 7s ease-in-out var(--d) infinite}}
+    @keyframes tk{{0%,100%{{opacity:.14}}50%{{opacity:.46}}}}
+    .puls{{opacity:.9;animation:pu 4.2s linear var(--d) infinite}}
     @keyframes pu{{0%{{opacity:0}}8%{{opacity:.95}}70%{{opacity:.95}}100%{{opacity:0}}}}
     {RED}</style>''')
 
@@ -180,14 +190,63 @@ def accent():
         # streamlines stay drawn; a pulse travels along them
         o.append(f'<path id="s{k}" d="{d}" fill="none" stroke="{c}" stroke-width="1.4" '
                  f'stroke-linecap="round" opacity="0.6"/>')
-        o.append(f'<circle r="2.4" fill="{c}" class="puls" style="--d:{k*0.34:.2f}s">'
-                 f'<animateMotion dur="6s" begin="{k*0.34:.2f}s" repeatCount="indefinite">'
+        o.append(f'<circle r="2.4" fill="{c}" class="puls" style="--d:{k*0.22:.2f}s">'
+                 f'<animateMotion dur="4.2s" begin="{k*0.22:.2f}s" repeatCount="indefinite">'
                  f'<mpath href="#s{k}"/></animateMotion></circle>')
+    return "\n".join(o) + "\n</svg>\n"
+
+
+# ══════════════════════════════════════════════ lorenz attractor ═════════
+def lorenz():
+    """Same aspect ratio as accent(), so the two stack cleanly."""
+    W, H = 400, 320
+    s, r, b, dt = 10.0, 28.0, 8 / 3, 0.0045
+    x, y, z = 0.1, 0.0, 0.0
+    pts = []
+    for i in range(14000):
+        x += s * (y - x) * dt
+        y += (x * (r - z) - y) * dt
+        z += (x * y - b * z) * dt
+        if i > 400:
+            pts.append((x, z))
+    xs, zs = [p[0] for p in pts], [p[1] for p in pts]
+    x0, x1, z0, z1 = min(xs), max(xs), min(zs), max(zs)
+    sc = min((W - 46) / (x1 - x0), (H - 52) / (z1 - z0))
+
+    def T(p):
+        return ((p[0] - x0) * sc + (W - (x1 - x0) * sc) / 2,
+                H - 26 - (p[1] - z0) * sc)
+
+    o = [f'<svg class="accent-art" viewBox="0 0 {W} {H}" '
+         f'xmlns="http://www.w3.org/2000/svg" role="img" '
+         f'aria-label="The Lorenz attractor, traced as a single continuous curve">']
+    o.append(f'''<style>{PALETTE}
+    .lz{{stroke-dasharray:9000;stroke-dashoffset:0;
+        animation:tr 14s ease-out infinite}}
+    @keyframes tr{{0%{{stroke-dashoffset:9000}}62%,100%{{stroke-dashoffset:0}}}}
+    .fp{{animation:fp 3.2s ease-in-out infinite}}
+    @keyframes fp{{0%,100%{{opacity:.85;r:4.4}}50%{{opacity:.35;r:6.6}}}}
+    {RED}</style>''')
+    o.append(f'<defs><linearGradient id="lzg" x1="0" y1="0" x2="1" y2="1">'
+             f'<stop offset="0%" stop-color="{BLUE}"/>'
+             f'<stop offset="52%" stop-color="{INK}"/>'
+             f'<stop offset="100%" stop-color="{TERRA}"/></linearGradient></defs>')
+    d = "M" + " L".join(f"{T(p)[0]:.1f},{T(p)[1]:.1f}" for p in pts[::3])
+    o.append(f'<path d="{d}" fill="none" stroke="url(#lzg)" stroke-width="0.85" '
+             f'opacity="0.82" stroke-linejoin="round" class="lz"/>')
+    for fx in (-1, 1):                              # the two fixed points
+        px, py = T((fx * math.sqrt(b * (r - 1)), r - 1))
+        o.append(f'<circle cx="{px:.1f}" cy="{py:.1f}" r="4.4" fill="{TERRA}" '
+                 f'class="fp" style="animation-delay:{0 if fx < 0 else 1.6}s"/>')
+    o.append(f'<text x="{W-14}" y="{H-10}" text-anchor="end" font-size="10" '
+             f'letter-spacing="2" fill="{SILVER}" font-family="{MONO}" '
+             f'opacity="0.7">σ=10 ρ=28 β=8/3</text>')
     return "\n".join(o) + "\n</svg>\n"
 
 
 open(DEST + "hero.svg", "w", encoding="utf-8").write(hero())
 open(DEST + "accent.svg", "w", encoding="utf-8").write(accent())
+open(DEST + "lorenz.svg", "w", encoding="utf-8").write(lorenz())
 
 # The side-by-side preview is a debugging aid, not part of the site — keep it
 # out of the repo so it never ends up committed or published.

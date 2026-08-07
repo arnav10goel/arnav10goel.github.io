@@ -18,8 +18,14 @@ tools/gen_art.py         regenerates the two SVG artworks
 
 ## The artwork
 
-`assets/hero.svg` (a loss landscape with a simulated gradient-descent path) and
-`assets/accent.svg` (a vector field with streamlines) are generated, not drawn:
+Three generated artworks, not drawn by hand:
+
+- `assets/hero.svg` — a loss landscape whose descent path is a real simulated
+  gradient descent on the plotted quadratic
+- `assets/accent.svg` — a vector field with particle streamlines
+- `assets/lorenz.svg` — the Lorenz attractor
+
+Regenerate them with:
 
 ```bash
 python3 tools/gen_art.py
