@@ -50,11 +50,41 @@ AUTHOR = "Arnav Goel"
 
 NAV = (
     '<a href="/">home</a><span class="nav-sep">/</span>'
+    '<a href="/#about">about</a><span class="nav-sep">/</span>'
+    '<a href="/#research">research</a><span class="nav-sep">/</span>'
     '<a href="/cv/">cv</a><span class="nav-sep">/</span>'
     '<a href="/publications/">publications</a><span class="nav-sep">/</span>'
-    '<a href="/blog/" class="active">blog</a><span class="nav-sep">/</span>'
-    '<a href="https://scholar.google.com/citations?user=PPozs9sAAAAJ&hl=en">scholar</a>'
+    '<a href="/blog/" class="active">blog</a>'
 )
+
+# Applied before first paint so a stored preference does not flash the wrong theme.
+NOFLASH = ('<script>(function(){try{var t=localStorage.getItem("theme");'
+           'if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}'
+           'catch(e){}})();</script>')
+
+SUN = ('<svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+       'stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/>'
+       '<path d="M12 2.4v2.1M12 19.5v2.1M4.9 4.9l1.5 1.5M17.6 17.6l1.5 1.5M2.4 12h2.1M19.5 12h2.1'
+       'M4.9 19.1l1.5-1.5M17.6 6.4l1.5-1.5"/></svg>')
+MOON = ('<svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" '
+        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+        '<path d="M20.2 14.8A8.6 8.6 0 1 1 9.2 3.8a6.7 6.7 0 0 0 11 11z"/></svg>')
+
+TOGGLE_JS = """<script>
+(function () {
+  var btn = document.querySelector('.theme-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var root = document.documentElement;
+    var cur = root.getAttribute('data-theme');
+    if (!cur) cur = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+</script>
+"""
 
 MATHJAX = """<script>
 window.MathJax = {
@@ -76,13 +106,18 @@ PAGE = """<!doctype html>
 <link rel="stylesheet" href="/assets/code.css">
 <link rel="alternate" type="application/rss+xml" title="{author}" href="/blog/feed.xml">
 <link rel="canonical" href="{canonical}">
+{noflash}
 {head_extra}</head>
 <body>
 <div class="wrap{wrap_class}">
 
   <header class="site-header">
     <a class="site-name" href="/">{author}</a>
-    <nav class="nav">{nav}</nav>
+    <div class="nav-wrap">
+      <nav class="nav">{nav}</nav>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme"
+              title="Switch colour theme">{sun}{moon}</button>
+    </div>
   </header>
 
 {body}
@@ -93,7 +128,7 @@ PAGE = """<!doctype html>
   </footer>
 
 </div>
-</body>
+{toggle}</body>
 </html>
 """
 
@@ -212,6 +247,10 @@ def write_post(post: dict) -> None:
         head_extra=MATHJAX + "\n" if post["has_math"] else "",
         wrap_class="",
         nav=NAV,
+        noflash=NOFLASH,
+        sun=SUN,
+        moon=MOON,
+        toggle=TOGGLE_JS,
         author=AUTHOR,
         year=datetime.now().year,
         body=body,
@@ -241,6 +280,10 @@ def write_index(posts: list[dict]) -> None:
         head_extra="",
         wrap_class="",
         nav=NAV,
+        noflash=NOFLASH,
+        sun=SUN,
+        moon=MOON,
+        toggle=TOGGLE_JS,
         author=AUTHOR,
         year=datetime.now().year,
         body=items,

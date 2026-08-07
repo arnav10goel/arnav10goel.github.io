@@ -7,6 +7,7 @@
 <meta name="description" content="Arnav Goel — M.S. in Machine Learning at Carnegie Mellon University. Reliability, verification and efficient reasoning in language models and agents.">
 <link rel="icon" href="/assets/favicon.ico">
 <link rel="stylesheet" href="/assets/style.css">
+<script>(function(){try{var t=localStorage.getItem("theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
 <link rel="canonical" href="https://arnav10goel.github.io/">
 </head>
 <body>
@@ -14,13 +15,14 @@
 
   <header class="site-header">
     <a class="site-name" href="/">Arnav Goel</a>
-    <nav class="nav">
-      <a href="/" class="active">home</a><span class="nav-sep">/</span><a href="/cv/">cv</a><span class="nav-sep">/</span><a href="/publications/">publications</a><span class="nav-sep">/</span><a href="/blog/">blog</a><span class="nav-sep">/</span><a href="https://scholar.google.com/citations?user=PPozs9sAAAAJ&hl=en">scholar</a>
-    </nav>
+    <div class="nav-wrap">
+      <nav class="nav"><a href="/" class="active">home</a><span class="nav-sep">/</span><a href="#about">about</a><span class="nav-sep">/</span><a href="#research">research</a><span class="nav-sep">/</span><a href="/cv/">cv</a><span class="nav-sep">/</span><a href="/publications/">publications</a><span class="nav-sep">/</span><a href="/blog/">blog</a></nav>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.1M12 19.5v2.1M4.9 4.9l1.5 1.5M17.6 17.6l1.5 1.5M2.4 12h2.1M19.5 12h2.1M4.9 19.1l1.5-1.5M17.6 6.4l1.5-1.5"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 14.8A8.6 8.6 0 1 1 9.2 3.8a6.7 6.7 0 0 0 11 11z"/></svg></button>
+    </div>
   </header>
 
   <section class="hero">
-    <img class="hero-photo" src="/assets/arnav-goel.jpeg" alt="Arnav Goel" width="413" height="531">
+    <img class="hero-photo" src="/assets/arnav-2026.jpg" alt="Arnav Goel, standing on a downtown Pittsburgh street at night" width="702" height="900">
     <div class="hero-text">
       <p class="kicker">Carnegie Mellon University</p>
       <h1>Arnav Goel</h1>
@@ -34,7 +36,7 @@
     I am looking for full-time <strong>ML Research/Engineering, Applied Science and Quant Research</strong> roles starting January 2027. Please <a href="mailto:arnavgoe@cs.cmu.edu">reach out</a> if you think I may be a good fit.
   </div>
 
-  <div class="sec">
+  <div class="sec" id="research">
     <h2>Research</h2>
     <div class="rule"><i></i><s></s></div>
   </div>
@@ -55,7 +57,7 @@
     <a class="linkcard" href="https://www.linkedin.com/in/arnavg10/"><span class="badge" style="background:color-mix(in srgb, var(--art-blue) 24%, transparent)">in</span>LinkedIn<span class="arw">→</span></a>
   </div>
 
-  <div class="sec">
+  <div class="sec" id="about">
     <h2>About</h2>
     <div class="rule"><i></i><s></s></div>
   </div>
@@ -146,5 +148,19 @@
   </footer>
 
 </div>
+<script>
+(function () {
+  var btn = document.querySelector('.theme-toggle');
+  if (!btn) return;
+  btn.addEventListener('click', function () {
+    var root = document.documentElement;
+    var cur = root.getAttribute('data-theme');
+    if (!cur) cur = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+</script>
 </body>
 </html>
