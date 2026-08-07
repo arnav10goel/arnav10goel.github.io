@@ -9,6 +9,7 @@ Colours are CSS custom properties so both retheme with the page in dark mode.
 """
 import math
 import random
+import tempfile
 
 DEST = str(__import__("pathlib").Path(__file__).parent.parent / "assets") + "/"
 
@@ -188,6 +189,10 @@ def accent():
 open(DEST + "hero.svg", "w", encoding="utf-8").write(hero())
 open(DEST + "accent.svg", "w", encoding="utf-8").write(accent())
 
+# The side-by-side preview is a debugging aid, not part of the site — keep it
+# out of the repo so it never ends up committed or published.
+_PREV = tempfile.gettempdir() + "/"
+
 prev = """<!doctype html><meta charset="utf-8"><style>
 :root{--art-ink:#253342;--art-terra:#c05c3e;--art-blue:#7fa8cd;--art-teal:#4a8b8b;
 --art-mustard:#d9a441;--art-silver:#aab4be;--mono:ui-monospace,Menlo,monospace}
@@ -201,5 +206,5 @@ body{background:#fefdf9;margin:0;padding:20px;font:13px ui-sans-serif,system-ui;
 </style>
 <div class="card"><div class="lbl">hero — loss landscape</div>""" + hero() + """</div>
 <div class="card"><div class="lbl">accent — vector field</div>""" + accent() + "</div>"
-open("final-preview.html", "w", encoding="utf-8").write(prev)
-print("wrote final-hero.svg, final-accent.svg")
+open(_PREV + "art-preview.html", "w", encoding="utf-8").write(prev)
+print(f"wrote {DEST}hero.svg, {DEST}accent.svg  (preview: {_PREV}art-preview.html)")
