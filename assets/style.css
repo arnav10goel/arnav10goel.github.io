@@ -86,10 +86,10 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.06fr) minmax(0, 1fr);
-  gap: 30px;
-  align-items: center;
-  margin-bottom: 52px;
+  grid-template-columns: 196px minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+  margin-bottom: 46px;
 }
 
 .hero-art {
@@ -101,7 +101,7 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
 
 /* Natural aspect ratio — the portrait is never cropped. */
 .hero-photo {
-  width: 150px;
+  width: 100%;
   height: auto;
   border-radius: 3px;
   display: block;
@@ -511,7 +511,7 @@ h2.section .more {
 
   .hero { grid-template-columns: 1fr; gap: 18px; margin-bottom: 36px; }
   .hero-art { margin-left: 0; max-width: 400px; }
-  .hero-photo { width: 108px; margin-bottom: 14px; }
+  .hero-photo { width: 132px; margin-bottom: 14px; }
   .hero-text { padding-top: 0; }
   .hero h1 { font-size: 34px; }
   .about { grid-template-columns: 1fr; gap: 22px; }
@@ -610,11 +610,11 @@ h2.section .more {
 /* ── text beside artwork ── */
 .split {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: 38px;
   align-items: center;
 }
-.split.flip { grid-template-columns: minmax(0, 0.62fr) minmax(0, 1fr); align-items: start; }
+.split.flip { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); align-items: start; }
 .split .art { width: 100%; height: auto; display: block; }
 .split .portrait {
   width: 100%;
@@ -693,4 +693,27 @@ h2.section .more {
   .linkcards { grid-template-columns: repeat(2, 1fr); }
   .linkcard { border-bottom: 1px solid var(--line); }
   .sec h2 { font-size: 22px; }
+}
+
+/* ── standout: the thing a visitor should not miss ── */
+.standout {
+  border: 1px solid color-mix(in srgb, var(--art-mustard) 55%, transparent);
+  background: color-mix(in srgb, var(--art-mustard) 13%, transparent);
+  border-radius: 4px;
+  padding: 14px 18px;
+  margin: 30px 0 4px;
+  font-family: var(--serif);
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.standout strong { font-weight: 600; }
+.standout .tag {
+  display: block;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--art-mustard) 78%, var(--ink));
+  margin-bottom: 5px;
 }
