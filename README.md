@@ -13,7 +13,23 @@ posts/*.md               blog posts, in markdown  ← write here
 assets/style.css         the entire design
 assets/code.css          generated — syntax highlighting
 build.py                 markdown → blog HTML
+tools/gen_art.py         regenerates the two SVG artworks
 ```
+
+## The artwork
+
+`assets/hero.svg` (a loss landscape with a simulated gradient-descent path) and
+`assets/accent.svg` (a vector field with streamlines) are generated, not drawn:
+
+```bash
+python3 tools/gen_art.py
+```
+
+Both are deterministic — the seeds are fixed, so re-running produces the same
+image. They carry their own light/dark palette and their own animation, and
+every resting state is the finished drawing, so they still read correctly with
+`prefers-reduced-motion` or anywhere CSS animation does not run. Edit the
+constants at the top of each function to retune them.
 
 ## Previewing locally
 

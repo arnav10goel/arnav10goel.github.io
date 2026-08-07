@@ -1,0 +1,74 @@
+<svg class="hero-art" viewBox="0 0 580 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A loss landscape drawn as nested contours, with a gradient-descent path zig-zagging down into the minimum">
+<style>
+    :root{--art-ink:#253342;--art-terra:#c05c3e;--art-blue:#7fa8cd;
+          --art-teal:#4a8b8b;--art-mustard:#d9a441;--art-silver:#aab4be}
+    @media(prefers-color-scheme:dark){
+      :root{--art-ink:#c6d2dd;--art-terra:#d9836b;--art-blue:#6d93b8;
+            --art-teal:#5d9c9c;--art-mustard:#c9a05a;--art-silver:#7e878f}
+    }
+    .pth{stroke-dasharray:var(--l);stroke-dashoffset:0;opacity:.9;
+         animation:go 10s ease-in-out infinite}
+    @keyframes go{0%{stroke-dashoffset:var(--l)}
+      55%,100%{stroke-dashoffset:0}}
+    .stp{opacity:.9;animation:stp 10s ease-in-out infinite}
+    @keyframes stp{0%,2%{opacity:0}9%,100%{opacity:.9}}
+    .mk{opacity:1;transform-box:fill-box;transform-origin:center;
+        animation:mk 10s ease-in-out infinite}
+    @keyframes mk{0%,52%{opacity:0;transform:scale(.4)}
+      62%,100%{opacity:1;transform:scale(1)}}
+    .halo{opacity:0;transform-box:fill-box;transform-origin:center;
+          animation:hal 10s ease-in-out infinite}
+    @keyframes hal{0%,54%{opacity:0;transform:scale(.5)}
+      68%{opacity:.6;transform:scale(1)}84%,100%{opacity:0;transform:scale(2)}}
+    .cn{animation:cn 12s ease-in-out infinite}
+    @keyframes cn{0%,100%{opacity:.34}50%{opacity:.62}}
+    .gr{animation:gr 12s ease-in-out infinite}
+    @keyframes gr{0%,100%{opacity:.17}50%{opacity:.42}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important}}</style>
+<ellipse cx="290" cy="200" rx="250" ry="118" fill="none" stroke="var(--art-blue)" stroke-width="1" opacity="0.22" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="232" ry="110" fill="none" stroke="var(--art-blue)" stroke-width="1" opacity="0.22" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="215" ry="102" fill="none" stroke="var(--art-blue)" stroke-width="1" opacity="0.22" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="197" ry="94" fill="none" stroke="var(--art-blue)" stroke-width="1" opacity="0.22" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="180" ry="86" fill="none" stroke="var(--art-blue)" stroke-width="1" opacity="0.22" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="162" ry="78" fill="none" stroke="var(--art-teal)" stroke-width="1" opacity="0.32" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="145" ry="70" fill="none" stroke="var(--art-teal)" stroke-width="1" opacity="0.32" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="127" ry="62" fill="none" stroke="var(--art-teal)" stroke-width="1" opacity="0.32" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="110" ry="54" fill="none" stroke="var(--art-terra)" stroke-width="1" opacity="0.4" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="92" ry="46" fill="none" stroke="var(--art-terra)" stroke-width="1" opacity="0.4" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="75" ry="38" fill="none" stroke="var(--art-terra)" stroke-width="1" opacity="0.4" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="57" ry="30" fill="none" stroke="var(--art-terra)" stroke-width="1.5" opacity="0.58" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="40" ry="22" fill="none" stroke="var(--art-terra)" stroke-width="1.5" opacity="0.58" transform="rotate(-24 290 200)"/>
+<ellipse cx="290" cy="200" rx="26" ry="16" fill="var(--art-terra)" opacity="0.15" transform="rotate(-24 290 200)"/>
+<path d="M110.3,296.9 L119.9,288.1 M119.9,288.1 l-1.2,5.1 M119.9,288.1 l-5.1,0.8" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M207.1,177.5 L215.3,187.6 M215.3,187.6 l-5.0,-1.5 M215.3,187.6 l-0.5,-5.2" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M443.4,137.6 L430.9,141.1 M430.9,141.1 l3.4,-4.0 M430.9,141.1 l4.9,1.6" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M301.9,311.1 L297.5,298.9 M297.5,298.9 l4.2,3.1 M297.5,298.9 l-1.3,5.0" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M188.5,149.8 L195.9,160.5 M195.9,160.5 l-4.8,-1.9 M195.9,160.5 l-0.1,-5.2" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M99.4,246.7 L112.0,250.0 M112.0,250.0 l-4.9,1.7 M112.0,250.0 l-3.4,-3.9" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M414.5,216.2 L405.4,206.9 M405.4,206.9 l5.1,1.1 M405.4,206.9 l0.9,5.1" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M445.1,237.3 L436.7,227.3 M436.7,227.3 l5.0,1.4 M436.7,227.3 l0.6,5.2" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M501.1,148.8 L488.6,145.3 M488.6,145.3 l4.9,-1.7 M488.6,145.3 l3.4,3.9" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M479.7,164.6 L467.7,159.6 M467.7,159.6 l5.1,-1.0 M467.7,159.6 l2.8,4.4" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M237.1,298.7 L235.3,285.8 M235.3,285.8 l3.5,3.9 M235.3,285.8 l-2.3,4.7" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M329.2,132.8 L330.8,145.7 M330.8,145.7 l-3.4,-3.9 M330.8,145.7 l2.4,-4.6" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M513.3,147.4 L500.8,143.7 M500.8,143.7 l5.0,-1.6 M500.8,143.7 l3.3,4.0" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M174.2,247.9 L186.6,244.1 M186.6,244.1 l-3.3,4.0 M186.6,244.1 l-5.0,-1.5" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M511.4,91.1 L500.6,98.3 M500.6,98.3 l2.0,-4.8 M500.6,98.3 l5.2,0.0" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M431.6,195.0 L421.2,187.1 M421.2,187.1 l5.2,0.3 M421.2,187.1 l1.7,4.9" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M407.4,208.6 L398.0,199.7 M398.0,199.7 l5.1,0.9 M398.0,199.7 l1.1,5.1" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M182.3,199.4 L192.3,207.8 M192.3,207.8 l-5.2,-0.5 M192.3,207.8 l-1.5,-5.0" fill="none" stroke="var(--art-ink)" stroke-width="0.95" stroke-linecap="round" class="gr"/>
+<path d="M112.8,330.6 L152.1,230.4 L215.6,251.7 L233.5,214.0 L258.8,220.6 L266.8,206.3 L276.9,208.2 L280.5,202.8 L284.5,203.3 L286.1,201.2 L287.7,201.3 L288.4,200.5" fill="none" stroke="var(--art-ink)" stroke-width="2.1" stroke-linejoin="round" stroke-linecap="round" opacity="0.9" class="pth" style="--l:285"/>
+<circle cx="112.8" cy="330.6" r="4.8" fill="var(--art-ink)" class="stp" style="animation-delay:0.00s"/>
+<circle cx="152.1" cy="230.4" r="3.2" fill="var(--art-ink)" class="stp" style="animation-delay:0.34s"/>
+<circle cx="215.6" cy="251.7" r="3.2" fill="var(--art-ink)" class="stp" style="animation-delay:0.68s"/>
+<circle cx="233.5" cy="214.0" r="3.2" fill="var(--art-ink)" class="stp" style="animation-delay:1.02s"/>
+<circle cx="258.8" cy="220.6" r="3.2" fill="var(--art-ink)" class="stp" style="animation-delay:1.36s"/>
+<circle cx="266.8" cy="206.3" r="3.2" fill="var(--art-ink)" class="stp" style="animation-delay:1.70s"/>
+<circle cx="276.9" cy="208.2" r="3.2" fill="var(--art-ink)" class="stp" style="animation-delay:2.04s"/>
+<circle cx="280.5" cy="202.8" r="3.2" fill="var(--art-ink)" class="stp" style="animation-delay:2.38s"/>
+<circle cx="284.5" cy="203.3" r="3.2" fill="var(--art-ink)" class="stp" style="animation-delay:2.72s"/>
+<circle cx="286.1" cy="201.2" r="3.2" fill="var(--art-ink)" class="stp" style="animation-delay:3.06s"/>
+<circle cx="290" cy="200" r="15" fill="none" stroke="var(--art-terra)" stroke-width="1.4" class="halo"/>
+<circle cx="290" cy="200" r="6.4" fill="var(--art-terra)" class="mk"/>
+<text x="558" y="380" text-anchor="end" font-size="11" letter-spacing="2.4" fill="var(--art-silver)" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" opacity="0.7">argmin</text>
+</svg>

@@ -2,7 +2,7 @@
 title: Everything this blog can do
 subtitle: A scratchpad showing the formatting available — delete or rewrite this whenever
 date: 2026-08-07
-draft: false
+draft: true
 ---
 
 This post is a **draft**, so it will not appear on the site until you change
