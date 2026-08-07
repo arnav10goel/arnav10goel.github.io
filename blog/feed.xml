@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+    <title>Arnav Goel</title>
+    <link>https://arnav10goel.github.io/blog/</link>
+    <description>Writing by Arnav Goel.</description>
+    <item>
+      <title>Everything this blog can do</title>
+      <link>https://arnav10goel.github.io/blog/example-post/</link>
+      <guid>https://arnav10goel.github.io/blog/example-post/</guid>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 +0000</pubDate>
+      <description>This post is a draft , so it will not appear on the site until you change draft: true to draft: false in the frontmatter above. It exists to show you what the formatting looks like…</description>
+    </item>
+</channel></rss>
