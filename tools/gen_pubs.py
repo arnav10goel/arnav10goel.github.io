@@ -30,7 +30,7 @@ LABELS = {"arxiv": "arXiv", "pdf": "PDF", "code": "Code", "data": "Dataset",
 PAPERS = [
  (2026, "Is Persona Generalization Predictable?",
   "Olina Mukherjee, {me}, Aditi Raghunathan, Jacob Mitchell Springer",
-  "Preprint", "Under review at ICLR 2027",
+  "Preprint", "",
   [("arxiv", "https://arxiv.org/abs/2611.12864")]),
 
  (2026, "Mind the Gap: Multilingual Divide in LLM Bias Detection and Reasoning",
