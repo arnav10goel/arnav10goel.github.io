@@ -23,11 +23,17 @@ ICONS = {
     "hf":    '<span class="hf-emoji" aria-hidden="true">\U0001F917</span>',
 }
 LABELS = {"arxiv": "arXiv", "pdf": "PDF", "code": "Code", "data": "Dataset",
-          "site": "Project", "hf": "HuggingFace"}
+          "site": "OpenReview", "hf": "HuggingFace"}
 
 # ── the papers ────────────────────────────────────────────────────────────
 # (year, title, authors, venue, note, [(kind, url), ...])
 PAPERS = [
+ (2026, "Is Persona Generalization Predictable?",
+  "Olina Mukherjee, {me}, Aditi Raghunathan, Jacob Mitchell Springer",
+  "Preprint", "Under review at ICLR 2027",
+  [("arxiv", "https://arxiv.org/abs/2611.12864"),
+   ("site", "https://openreview.net/forum?id=XrsOu4KgDE")]),
+
  (2026, "Mind the Gap: Multilingual Divide in LLM Bias Detection and Reasoning",
   "Medha Hira, Prachi Goyal, Raj Maheshwari, {me}",
   "ACL 2026", "Student Research Workshop", []),
@@ -35,12 +41,16 @@ PAPERS = [
  (2026, "MORPHOGEN: A Multilingual Benchmark for Evaluating Gender-Aware Morphological Generation",
   "Mehul Agarwal, Aditya Aggarwal, {me}, Medha Hira, Anubha Gupta",
   "ACL 2026", "Main Conference",
-  [("arxiv", "https://arxiv.org/abs/2604.18914")]),
+  [("pdf", "https://aclanthology.org/2026.acl-long.105/"),
+   ("arxiv", "https://arxiv.org/abs/2604.18914"),
+   ("code", "https://github.com/arnav10goel/Morphogen")]),
 
  (2026, "HORIZON: A Benchmark for In-the-wild User Behaviour Modeling",
   "{me}, Pranjal A. Chitale, Bhawna Paliwal, Bishal Santra, Amit Sharma",
-  "Findings of ACL 2026", "NeurIPS 2025 Workshop",
-  [("arxiv", "https://arxiv.org/abs/2604.17259")]),
+  "Findings of ACL 2026", "LLMEval Workshop @ NeurIPS 2025",
+  [("pdf", "https://aclanthology.org/2026.findings-acl.1503/"),
+   ("arxiv", "https://arxiv.org/abs/2604.17259"),
+   ("code", "https://github.com/microsoft/horizon-benchmark")]),
 
  (2026, "On Defining Erasure Harms for NLP",
   "Yu Lu Liu, {me}, Jackie Chi Kit Cheung, Alexandra Olteanu, Ziang Xiao, Su Lin Blodgett",
@@ -50,8 +60,9 @@ PAPERS = [
  (2025, "Enhancing Scientific Visual Question Answering via Vision-Caption aware Supervised Fine-Tuning",
   "Janak Kapuriya, Anwar Shaikh, {me}, Medha Hira, Apoorv Singh, Jay Saraf, Sanjana, "
   "Vaibhav Nauriyal, Avinash Anand, Zhengkui Wang, Rajiv Ratn Shah",
-  "LVLM Workshop @ ACM MM 2025", "",
-  [("arxiv", "https://arxiv.org/abs/2509.16628")]),
+  "LAVA Workshop @ ACM Multimedia 2025", "Oral",
+  [("pdf", "https://dl.acm.org/doi/10.1145/3728483.3760194"),
+   ("arxiv", "https://arxiv.org/abs/2509.16628")]),
 
  (2025, "Attributing Culture-Conditioned Generations to Pretraining Corpora",
   "Huihan Li*, {me}*, Keyu He, Xiang Ren",
@@ -102,9 +113,6 @@ PAPERS = [
   "Preprint", "",
   [("arxiv", "https://arxiv.org/abs/2307.05538")]),
 
- (2023, "Improving Speech to Speech Conversion with Incorporation of Speaker Tonality",
-  "{me}, Medha Hira, Anubha Gupta",
-  "Technical Report, IIIT-Delhi", "", []),
 ]
 
 NAV = ('<a href="/">home</a><span class="nav-sep">/</span>'
@@ -196,14 +204,14 @@ def build():
 
   <div class="page-intro">
     <h1>Publications</h1>
-    <p>{len(PAPERS)} papers. <span class="star">*</span> denotes equal contribution.
+    <p><span class="star">*</span> denotes equal contribution.
        <a href="https://scholar.google.com/citations?user=PPozs9sAAAAJ&amp;hl=en">Google Scholar</a>
        has the most current list.</p>
   </div>
 
 {''.join(rows)}
-  <p class="note">I have served as a reviewer for ACM Multimedia 2024, ICLR 2024 (Tiny Track),
-     COLING 2025, ACL 2025 and EMNLP 2025.</p>
+  <p class="note">I have reviewed for ACL Rolling Review (Feb 2025, May 2025, May 2026, Oct 2026),
+     AAAI 2025 and 2026, ACM FAccT 2026, ACM Multimedia 2024 and ICLR 2024 (Tiny Track).</p>
 
   <footer class="site-footer">
     <span>&copy; 2026 {ME}</span>
