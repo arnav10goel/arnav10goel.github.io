@@ -31,8 +31,7 @@ PAPERS = [
  (2026, "Is Persona Generalization Predictable?",
   "Olina Mukherjee, {me}, Aditi Raghunathan, Jacob Mitchell Springer",
   "Preprint", "Under review at ICLR 2027",
-  [("arxiv", "https://arxiv.org/abs/2611.12864"),
-   ("site", "https://openreview.net/forum?id=XrsOu4KgDE")]),
+  [("arxiv", "https://arxiv.org/abs/2611.12864")]),
 
  (2026, "Mind the Gap: Multilingual Divide in LLM Bias Detection and Reasoning",
   "Medha Hira, Prachi Goyal, Raj Maheshwari, {me}",
